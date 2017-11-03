@@ -70,8 +70,7 @@ def plot_decision_scores_USPS(dataset,df_usps_scores):
     # Fine-tune figure; hide x ticks for top plots and y ticks for right plots
     _=plt.setp([a.get_xticklabels() for a in axarr[0, :]], visible=False)
     _=plt.setp([a.get_yticklabels() for a in axarr[:, 1]], visible=False)
-    _=plt.title("One Class NN:  USPS ");
-    _=plt.legend(loc = 'upper right');
+
 
     return 
 

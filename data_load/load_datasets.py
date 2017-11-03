@@ -12,7 +12,7 @@ def prepare_usps_mlfetch():
 
     import tempfile
     import pickle
-    print "importing usps from pickle file ....."
+    # print "importing usps from pickle file ....."
 
     with open(dataPath+'usps_data.pkl', "rb") as fp:
           loaded_data1 = pickle.load(fp)
@@ -55,10 +55,10 @@ def prepare_usps_mlfetch():
     # print "data:",data.shape
     # print "label:",label.shape
 
-    import matplotlib.pyplot as plt
-    plt.hist(label,bins=5)
-    plt.title("Count of  USPS Normal(1's) and Anomalous datapoints(7's) in training set")
-    plt.show()
+    # import matplotlib.pyplot as plt
+    # plt.hist(label,bins=5)
+    # plt.title("Count of  USPS Normal(1's) and Anomalous datapoints(7's) in training set")
+    # plt.show()
 
     return [data,label]
 
@@ -120,14 +120,14 @@ def prepare_fake_news_data():
 
     Xlabels = np.concatenate((Xlabels_hate,Xlabels_fake),axis=0)
 
-    print "Hate Class Shape",df_hate.shape
-    print "Fake Class shape",df_fake.shape
-    # print Xlabels.shape
-    # print Xlabels
-    import matplotlib.pyplot as plt
-    plt.hist(Xlabels,bins=5)
-    plt.title("Count of Hate and Fake class datapoints in data set")
-    plt.show()
+    # print "Hate Class Shape",df_hate.shape
+    # print "Fake Class shape",df_fake.shape
+    # # print Xlabels.shape
+    # # print Xlabels
+    # import matplotlib.pyplot as plt
+    # plt.hist(Xlabels,bins=5)
+    # plt.title("Count of Hate and Fake class datapoints in data set")
+    # plt.show()
 
     ### text vectorization--go from strings to lists of numbers
     from sklearn.feature_extraction.text import TfidfVectorizer
@@ -141,11 +141,11 @@ def prepare_fake_news_data():
 
     # print "Hate News",(data_train_transformed[:10])
     # print "Fake News",(data_test_transformed[:10])
-    print data_train_transformed.shape
-    print data_test_transformed.shape
+    # print data_train_transformed.shape
+    # print data_test_transformed.shape
 
-    print type(data_train_transformed)
-    print type(data_test_transformed)
+    # print type(data_train_transformed)
+    # print type(data_test_transformed)
 
     # # slim the data for training and testing
     selector = SelectPercentile(f_classif, percentile=1)
@@ -155,11 +155,11 @@ def prepare_fake_news_data():
     data_train_transformed = selector.transform(data_train_transformed).toarray()
     data_test_transformed  = selector.transform(data_test_transformed).toarray()
 
-    print data_train_transformed.shape
-    print data_test_transformed.shape
+    # print data_train_transformed.shape
+    # print data_test_transformed.shape
 
-    print type(data_train_transformed)
-    print type(data_test_transformed)
+    # print type(data_train_transformed)
+    # print type(data_test_transformed)
 
     data_train_transformed
     data_test_transformed
@@ -245,11 +245,11 @@ def prepare_cifar_10_data():
     train_X = np.reshape(train_X, (len(train_X),3072))
     testX = np.reshape(testX, (len(testX),3072))
 
-    print "Data Train Shape",train_X.shape
-    print "Data Test Shape",testX.shape
+    # print "Data Train Shape",train_X.shape
+    # print "Data Test Shape",testX.shape
 
-    print "Label Train Shape",train_Y.shape
-    print "Label Test Shape",testY.shape
+    # print "Label Train Shape",train_Y.shape
+    # print "Label Test Shape",testY.shape
 
     data_train    = train_X
     data_test     = testX
@@ -296,14 +296,14 @@ def prepare_spam_vs_ham_data():
 
     Xlabels = np.concatenate((Xlabels_ham,Xlabels_spam),axis=0)
 
-    print "Ham Class Shape",df_ham.shape
-    print "Spam Class shape",df_spam.shape
-    print Xlabels.shape
-    print Xlabels
-    import matplotlib.pyplot as plt
-    plt.hist(Xlabels,bins=5)
-    plt.title("Count of HAM and SPAM class datapoints in data set")
-    plt.show()
+    # print "Ham Class Shape",df_ham.shape
+    # print "Spam Class shape",df_spam.shape
+    # print Xlabels.shape
+    # print Xlabels
+    # import matplotlib.pyplot as plt
+    # plt.hist(Xlabels,bins=5)
+    # plt.title("Count of HAM and SPAM class datapoints in data set")
+    # plt.show()
 
 
     from sklearn.feature_extraction.text import TfidfVectorizer

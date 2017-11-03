@@ -59,7 +59,7 @@ def tf_OneClass_NN_linear(data_train,data_test):
         """
         w_1 = tf.cast(w_1, tf.float64)
         w_2 = tf.cast(w_2, tf.float64)
-        h    = (tf.matmul(X, w_1))  # The \sigma function
+        h    = (tf.matmul(X, w_1))  # 
         yhat = tf.matmul(h, w_2)  # The \varphi function
         return yhat
 
