@@ -1,2 +1,0 @@
-model_checkpoint_path: "cifar10_cnn-100"
-all_model_checkpoint_paths: "cifar10_cnn-100"
