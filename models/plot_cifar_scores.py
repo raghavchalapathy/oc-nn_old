@@ -12,7 +12,7 @@ methods = ["Linear","RBF"]
 def plot_decision_scores_CIFAR(dataset,df_cifar_scores):
     # Four axes, returned as a 2-d array
     # 
-    f, axarr = plt.subplots(5, 2,figsize=(20,20))
+    f, axarr = plt.subplots(4, 2,figsize=(20,20))
     st = f.suptitle("One Class NN:  "+dataset, fontsize="x-large",fontweight='bold');
 
     _=axarr[0, 0].hist(df_cifar_scores["sklearn-OCSVM-Linear-Train"], bins = 25, label = 'Normal')
@@ -26,7 +26,6 @@ def plot_decision_scores_CIFAR(dataset,df_cifar_scores):
     _=axarr[0, 1].legend(loc="upper right")
 
 
-
     _=axarr[1, 0].hist(df_cifar_scores["sklearn-OCSVM-explicit-Linear-Train"], bins = 25, label = 'Normal')
     _=axarr[1, 0].hist(df_cifar_scores["sklearn-OCSVM-explicit-Linear-Test"], bins = 25, label = 'Anomaly')
     _=axarr[1, 0].set_title("sklearn-OCSVM-explicit :  " + activations[0]);
@@ -35,7 +34,6 @@ def plot_decision_scores_CIFAR(dataset,df_cifar_scores):
     _=axarr[1, 1].hist(df_cifar_scores["sklearn-OCSVM-explicit-Sigmoid-Test"], bins = 25, label = 'Anomaly')
     _=axarr[1, 1].set_title("sklearn-OCSVM-explicit :  " + activations[1]);
     _=axarr[1, 1].legend(loc="upper right")
-
 
 
     _=axarr[2, 0].hist(df_cifar_scores["One_Class_NN_explicit-Linear-Train"], bins = 25, label = 'Normal')
@@ -48,24 +46,34 @@ def plot_decision_scores_CIFAR(dataset,df_cifar_scores):
     _=axarr[2, 1].legend(loc="upper right")
 
 
-    _=axarr[3, 0].hist(df_cifar_scores["tf_OneClass_NN-Linear-Train"], bins = 25, label = 'Normal')
-    _=axarr[3, 0].hist(df_cifar_scores["tf_OneClass_NN-Linear-Test"], bins = 25, label = 'Anomaly')
-    _=axarr[3, 0].set_title("tf_OneClass_NN:  " + activations[0]);
+    # _=axarr[3, 0].hist(df_cifar_scores["tf_OneClass_NN-Linear-Train"], bins = 25, label = 'Normal')
+    # _=axarr[3, 0].hist(df_cifar_scores["tf_OneClass_NN-Linear-Test"], bins = 25, label = 'Anomaly')
+    # _=axarr[3, 0].set_title("tf_OneClass_NN:  " + activations[0]);
 
-    _=axarr[3, 1].hist(df_cifar_scores["tf_OneClass_NN-Sigmoid-Train"], bins = 25, label = 'Normal')
-    _=axarr[3, 1].hist(df_cifar_scores["tf_OneClass_NN-Sigmoid-Test"], bins = 25, label = 'Anomaly')
-    _=axarr[3, 1].set_title("tf_OneClass_NN:  " + activations[1]);
+    # _=axarr[3, 1].hist(df_cifar_scores["tf_OneClass_NN-Sigmoid-Train"], bins = 25, label = 'Normal')
+    # _=axarr[3, 1].hist(df_cifar_scores["tf_OneClass_NN-Sigmoid-Test"], bins = 25, label = 'Anomaly')
+    # _=axarr[3, 1].set_title("tf_OneClass_NN:  " + activations[1]);
+    # _=axarr[3, 1].legend(loc="upper right")
+
+
+    _=axarr[3, 0].hist(df_cifar_scores["tf_OneClass_CNN-Linear-Train"], bins = 25, label = 'Normal')
+    _=axarr[3, 0].hist(df_cifar_scores["tf_OneClass_CNN-Linear-Test"], bins = 25, label = 'Anomaly')
+    _=axarr[3, 0].set_title("tf_OneClass_CNN:  " + activations[0]);
+
+    _=axarr[3, 1].hist(df_cifar_scores["tf_OneClass_CNN-Sigmoid-Train"], bins = 25, label = 'Normal')
+    _=axarr[3, 1].hist(df_cifar_scores["tf_OneClass_CNN-Sigmoid-Test"], bins = 25, label = 'Anomaly')
+    _=axarr[3, 1].set_title("tf_OneClass_CNN:  " + activations[1]);
     _=axarr[3, 1].legend(loc="upper right")
 
 
-    _=axarr[4, 0].hist(df_cifar_scores["tflearn_OneClass_NN-Linear-Train"], bins = 25, label = 'Normal')
-    _=axarr[4, 0].hist(df_cifar_scores["tflearn_OneClass_NN-Linear-Test"], bins = 25, label = 'Anomaly')
-    _=axarr[4, 0].set_title("tflearn_OneClass_NN:  " + activations[0]);
+    # _=axarr[4, 0].hist(df_cifar_scores["tflearn_OneClass_NN-Linear-Train"], bins = 25, label = 'Normal')
+    # _=axarr[4, 0].hist(df_cifar_scores["tflearn_OneClass_NN-Linear-Test"], bins = 25, label = 'Anomaly')
+    # _=axarr[4, 0].set_title("tflearn_OneClass_NN:  " + activations[0]);
 
-    _=axarr[4, 1].hist(df_cifar_scores["tflearn_OneClass_NN-Sigmoid-Train"], bins = 25, label = 'Normal')
-    _=axarr[4, 1].hist(df_cifar_scores["tflearn_OneClass_NN-Sigmoid-Test"], bins = 25, label = 'Anomaly')
-    _=axarr[4, 1].set_title("tflearn_OneClass_NN:  " + activations[1]);
-    _=axarr[4, 1].legend(loc="upper right")
+    # _=axarr[4, 1].hist(df_cifar_scores["tflearn_OneClass_NN-Sigmoid-Train"], bins = 25, label = 'Normal')
+    # _=axarr[4, 1].hist(df_cifar_scores["tflearn_OneClass_NN-Sigmoid-Test"], bins = 25, label = 'Anomaly')
+    # _=axarr[4, 1].set_title("tflearn_OneClass_NN:  " + activations[1]);
+    # _=axarr[4, 1].legend(loc="upper right")
 
     # Fine-tune figure; hide x ticks for top plots and y ticks for right plots
     _=plt.setp([a.get_xticklabels() for a in axarr[0, :]], visible=False)
