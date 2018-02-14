@@ -9,14 +9,18 @@ from scipy.optimize import minimize
 dataPath = './data/'
 
 colNames = ["sklearn-OCSVM-Linear-Train","sklearn-OCSVM-RBF-Train","sklearn-OCSVM-Linear-Test","sklearn-OCSVM-RBF-Test","sklearn-explicit-Linear-Train","sklearn-explicit-Sigmoid-Train","sklearn-explicit-Linear-Test","sklearn-explicit-Sigmoid-Test","tf-Linear-Train","tf-Sigmoid-Train","tf-Linear-Test","tf-Sigmoid-Test","tfLearn-Linear-Train","tfLearn-Sigmoid-Train","tfLearn-Linear-Test","tfLearn-Sigmoid-Test"]
+from tf_OneClass_CNN_model import func_get_ImageVectors
+dataPathTrain = '/Users/raghav/Documents/Uni/oc-nn/data/cifar-10_data/train/dogs/'
+dataPathTest = '/Users/raghav/Documents/Uni/oc-nn/data/cifar-10_data/test/'
 
 # Create empty dataframe with given column names.
 df_usps_scores = {}
 df_fake_news_scores = {}
 df_spam_vs_ham_scores = {}
 df_cifar_10_scores = {}
-nu = 0.04
-K  = 4
+nu = 0.002
+# nu = 0.04 # for usps
+K  = 2
 
 
 def relu(x):
@@ -77,6 +81,7 @@ def ocnn_grad(theta, X, nu, D, K, g, dG):
 
 def One_Class_NN_explicit_linear(data_train,data_test):
 
+
     X  = data_train
     D  = X.shape[1]
 
@@ -100,6 +105,9 @@ def One_Class_NN_explicit_linear(data_train,data_test):
 
     pos_decisionScore = nnScore(data_train, wStar, VStar, g) - rStar
     neg_decisionScore = nnScore(data_test, wStar, VStar, g) - rStar
+
+    print "pos_decisionScore", np.sort(pos_decisionScore)
+    print "neg_decisionScore", np.sort(neg_decisionScore)
 
 
     return [pos_decisionScore,neg_decisionScore]
@@ -131,6 +139,8 @@ def One_Class_NN_explicit_sigmoid(data_train,data_test):
 
     pos_decisionScore = nnScore(data_train, wStar, VStar, g) - rStar
     neg_decisionScore = nnScore(data_test, wStar, VStar, g) - rStar
+    print "pos_decisionScore", np.sort(pos_decisionScore)
+    print "neg_decisionScore", np.sort(neg_decisionScore)
 
     return [pos_decisionScore,neg_decisionScore]
 

@@ -8,6 +8,7 @@ from scipy.optimize import minimize
 dataPath = './data/'
 
 
+
 # Create empty dataframe with given column names.
 df_usps_scores = {}
 df_fake_news_scores = {}
@@ -60,6 +61,8 @@ def ocsvm_grad(theta, X, nu, D,g,dG):
 
 def sklearn_OCSVM_explicit_linear(data_train,data_test):
 
+
+
     X  = data_train
     D  = X.shape[1]
 
@@ -81,9 +84,9 @@ def sklearn_OCSVM_explicit_linear(data_train,data_test):
 
     return [pos_decisionScore,neg_decisionScore]
 
-
-
 def sklearn_OCSVM_explicit_sigmoid(data_train,data_test):
+
+
     X  = data_train
     D  = X.shape[1]
 
@@ -123,7 +126,6 @@ def func_getDecision_Scores_sklearn_OCSVM_explicit(dataset,data_train,data_test)
         df_usps_scores["sklearn-OCSVM-explicit-Sigmoid-Train"] = result[0]
         df_usps_scores["sklearn-OCSVM-explicit-Sigmoid-Test"] = result[1]
 
-
     if(dataset=="FAKE_NEWS" ):   
         result = sklearn_OCSVM_explicit_linear(data_train,data_test)
         df_fake_news_scores["sklearn-OCSVM-explicit-Linear-Train"] = result[0]
@@ -133,7 +135,6 @@ def func_getDecision_Scores_sklearn_OCSVM_explicit(dataset,data_train,data_test)
         df_fake_news_scores["sklearn-OCSVM-explicit-Sigmoid-Train"] = result[0]
         df_fake_news_scores["sklearn-OCSVM-explicit-Sigmoid-Test"] = result[1]
 
-
     # if(dataset=="SPAM_Vs_HAM" ):
     #     result = sklearn_OCSVM_explicit_linear(data_train,data_test)
     #     df_spam_vs_ham_scores["sklearn-OCSVM-explicit-Linear-Train"] = result[0] 
@@ -142,7 +143,6 @@ def func_getDecision_Scores_sklearn_OCSVM_explicit(dataset,data_train,data_test)
     #     result = sklearn_OCSVM_explicit_sigmoid(data_train,data_test)
     #     df_spam_vs_ham_scores["sklearn-OCSVM-explicit-Sigmoid-Train"] = result[0]
     #     df_spam_vs_ham_scores["sklearn-OCSVM-explicit-Sigmoid-Test"] = result[1]
-
 
     if(dataset=="CIFAR-10" ):
         result = sklearn_OCSVM_explicit_linear(data_train,data_test)
