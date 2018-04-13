@@ -4,7 +4,7 @@ The repository consists of code for models for experiments in [Anomaly Detection
 The steps to reproduce the experiments are :
 1) git clone https://github.com/raghavchalapathy/oc-nn.git
 2) cd oc-nn
-3) Download the data folder from this [link](https://drive.google.com/open?id=1bsW48TGwFwAnRhBtY7Uncq7sKsdMvqIv) and place inside the directory oc-nn
+3) Download the data and required models folder from this [link](https://drive.google.com/open?id=1bsW48TGwFwAnRhBtY7Uncq7sKsdMvqIv) and place inside the directory oc-nn
 4) Download the folders : lstm_autoencoders, trained_models which consists of pre-trained models and place it inside path 
    oc-nn/models folder
 5) Kindly make sure the paths are local to your running environments and 
