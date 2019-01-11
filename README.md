@@ -7,17 +7,51 @@ This repository provides a Keras-Tensorflow implementation of the One Class Neur
 
 You find a PDF of the One Class Neural Network paper at:
 
+If you use our work, please also cite the paper:
+
 > I’ve always been more interested
 > in the future than in the past.
 
-Models for one class neural networks
-The repository consists of code for models for experiments in [Anomaly Detection using One-Class Neural Networks](https://arxiv.org/abs/1802.06360).
-The steps to reproduce the experiments are :
-1) git clone https://github.com/raghavchalapathy/oc-nn.git
-2) cd oc-nn
-3) Download the data and required models folder from this [link](https://drive.google.com/open?id=1bsW48TGwFwAnRhBtY7Uncq7sKsdMvqIv) and place inside the directory oc-nn
-4) Download the folders : lstm_autoencoders, trained_models which consists of pre-trained models and place it inside path 
-   oc-nn/models folder
-5) Kindly make sure the paths are local to your running environments and 
-6) Execute the experiments present in the kdd_2018_conference_experiments.ipynb notebook
- 
+If you would like to get in touch, please contact .
+
+
+
+# Abstract
+
+>We propose a one-class neural network (OC-NN) model to detect anomalies in complex data sets. OC-NN combines the ability of >deep networks to extract a progressively rich representation of data with the one-class objective of creating a tight >envelope around normal data. The OC-NN approach breaks new ground for the following crucial reason: data representation in >the hidden layer is driven by the OC-NN objective and is thus customized for anomaly detection. This is a departure from >other approaches which use a hybrid approach of learning deep features using an autoencoder and then feeding the features >into a separate anomaly detection method like one-class SVM (OC-SVM). The hybrid OC-SVM approach is sub-optimal because it is >unable to influence representational learning in the hidden layers. A comprehensive set of experiments demonstrate that on >complex data sets (like CIFAR and GTSRB), OC-NN performs on par with state-of-the-art methods and outperformed conventional >shallow methods in some scenarios.
+
+
+
+# Installation
+
+This code is written in Python 3.7 and requires the packages listed in requirements.txt.
+
+Clone the repository to your local machine and directory of choice:
+
+
+
+# Running experiments
+
+We currently have implemented the MNIST (http://yann.lecun.com/exdb/mnist/) and CIFAR-10 (https://www.cs.toronto.edu/~kriz/cifar.html) datasets and simple LeNet-type networks.
+
+
+
+## MNIST Example
+
+
+
+## CIFAR-10 Example
+
+
+
+## Sample Results 
+
+
+### MNIST
+Example of the  most normal (left) and  most anomalous (right) test set examples per class on MNIST according to One Class Neural Networks and Robust Convolution Autoencoder (RCAE) anomaly scores.
+
+
+
+### CIFAR-10
+Example of the  most normal (left) and  most anomalous (right) test set examples per class on CIFAR-10 according to One Class Neural Networks and Robust Convolution Autoencoder (RCAE) anomaly scores.
+
