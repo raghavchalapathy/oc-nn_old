@@ -55,3 +55,11 @@ Example of the  most normal (left) and  most anomalous (right) test set examples
 ### CIFAR-10
 Example of the  most normal (left) and  most anomalous (right) test set examples per class on CIFAR-10 according to One Class Neural Networks and Robust Convolution Autoencoder (RCAE) anomaly scores.
 
+
+# License
+MIT
+
+
+# Disclosure
+This implementation is based on the repository https://github.com/lukasruff/Deep-SVDD, which is licensed under the MIT license. The Deep SVDD repository is an implementation of the paper "Deep One-Class Classification by Ruff, Lukas and Vandermeulen, Robert A. and G{\"o}rnitz, Nico and Deecke, Lucas and Siddiqui, Shoaib A. and Binder, Alexander and M{\"u}ller, Emmanuel and Kloft, Marius
+
