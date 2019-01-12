@@ -17,14 +17,14 @@ https://arxiv.org/pdf/1704.06743.pdf
 
 If you use our work, please also cite the paper:
 
-> @inproceedings{chalapathy2017robust,
->  title={Robust, deep and inductive anomaly detection},
-> author={Chalapathy, Raghavendra and Menon, Aditya Krishna and Chawla, Sanjay},
-> booktitle={Joint European Conference on Machine Learning and Knowledge Discovery in Databases},
-> pages={36--51},
-> year={2017},
-> organization={Springer}
-> }
+ @inproceedings{chalapathy2017robust,
+ title={Robust, deep and inductive anomaly detection},
+ author={Chalapathy, Raghavendra and Menon, Aditya Krishna and Chawla, Sanjay},
+ booktitle={Joint European Conference on Machine Learning and Knowledge Discovery in Databases},
+pages={36--51},
+year={2017},
+organization={Springer}
+}
 
 
 If you would like to get in touch, please contact .
