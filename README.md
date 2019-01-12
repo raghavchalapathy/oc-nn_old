@@ -62,7 +62,7 @@ Kindly make sure the PROJECT_DIR = "/content/drive/My Drive/2019/testing/oc-nn/"
 
 Kindly make sure you configure the normal and anomalous class inside the src/config.py present within the Configuration class object  for all the data sets and for any new data sets which would be added in future.
 
-The data related to GTSRB experiments can be downloaded [here],(https://drive.google.com/open?id=1GFyzwQZk6ie4aPfpVzlRi4VICyFNGs7Y). Please note that this data was shared to me by [Lukas Ruff](https://github.com/lukasruff) kindly request to acknowledge by citing his work as well.
+The data related to GTSRB experiments can be downloaded [here](https://drive.google.com/open?id=1GFyzwQZk6ie4aPfpVzlRi4VICyFNGs7Y). Please note that this data was shared to me by [Lukas Ruff](https://github.com/lukasruff) kindly request to acknowledge by citing his work as well.
 
 
 # Working with your own Data
