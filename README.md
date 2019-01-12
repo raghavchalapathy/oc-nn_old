@@ -5,14 +5,23 @@ This repository provides a Keras-Tensorflow implementation of the One Class Neur
 
 # Citations and Contact.
 
-You find a PDF of the One Class Neural Network paper at:
+You find a PDF of the **One Class Neural Network paper** at:
 
 If you use our work, please also cite the paper:
 
+```
+ @inproceedings{chalapathy2017robust,
+ title={Robust, deep and inductive anomaly detection},
+ author={Chalapathy, Raghavendra and Menon, Aditya Krishna and Chawla, Sanjay},
+ booktitle={Joint European Conference on Machine Learning and Knowledge Discovery in Databases},
+ pages={36--51},
+ year={2017},
+ organization={Springer}
+}
+```
 
 
-
-You find a PDF of the Robust, Deep and Inductive Anomaly Detection paper at:
+You find a PDF of the **Robust, Deep and Inductive Anomaly Detection** paper at:
 https://arxiv.org/pdf/1704.06743.pdf
 
 If you use our work, please also cite the paper:
@@ -162,9 +171,101 @@ print("========================================================================"
 ## CIFAR-10 Example
 ### RCAE
 
+```python
+%reload_ext autoreload
+%autoreload 2
+from src.models.RCAE import RCAE_AD
+import numpy as np 
+from src.config import Configuration as Cfg
+
+DATASET = "cifar10"
+IMG_DIM= 3072
+IMG_HGT =32
+IMG_WDT=32
+IMG_CHANNEL=3
+HIDDEN_LAYER_SIZE= 128
+MODEL_SAVE_PATH = PROJECT_DIR + "/models/cifar10/RCAE/"
+REPORT_SAVE_PATH = PROJECT_DIR + "/reports/figures/cifar10/RCAE/"
+
+PRETRAINED_WT_PATH = ""
+# RANDOM_SEED = [42,56,81,67,33,25,90,77,15,11]
+RANDOM_SEED = [42]
+AUC = []
+
+for seed in RANDOM_SEED:  
+  Cfg.seed = seed
+  rcae = RCAE_AD(DATASET,IMG_DIM, HIDDEN_LAYER_SIZE, IMG_HGT, IMG_WDT,IMG_CHANNEL, MODEL_SAVE_PATH, REPORT_SAVE_PATH,PRETRAINED_WT_PATH,seed)
+  print("Train Data Shape: ",rcae.data._X_train.shape)
+  print("Train Label Shape: ",rcae.data._y_train.shape)
+  print("Validation Data Shape: ",rcae.data._X_val.shape)
+  print("Validation Label Shape: ",rcae.data._y_val.shape)
+  print("Test Data Shape: ",rcae.data._X_test.shape)
+  print("Test Label Shape: ",rcae.data._y_test.shape)
+  print("===========TRAINING AND PREDICTING WITH DCAE============================")
+  auc_roc = rcae.fit_and_predict()
+  print("========================================================================")
+  AUC.append(auc_roc)
+  
+print("===========TRAINING AND PREDICTING WITH DCAE============================")
+print("AUROC computed ", AUC)
+auc_roc_mean = np.mean(np.asarray(AUC))
+auc_roc_std = np.std(np.asarray(AUC))
+print ("AUROC =====", auc_roc_mean ,"+/-",auc_roc_std)
+print("========================================================================")
+
+```
+
 
 
 ### OC_NN or Deep SVDD approach
+
+
+```python
+
+%reload_ext autoreload
+%autoreload 2
+
+from src.models.OneClass_SVDD import OneClass_SVDD
+from src.models.config import Configuration as Cfg
+
+DATASET = "cifar10"
+IMG_DIM= 3072
+IMG_HGT =32
+IMG_WDT=32
+IMG_CHANNEL=3
+HIDDEN_LAYER_SIZE= 128
+MODEL_SAVE_PATH = PROJECT_DIR + "/models/cifar10/OC_NN/"
+REPORT_SAVE_PATH = PROJECT_DIR + "/reports/figures/cifar10/OC_NN/DeepSVDD/"
+PRETRAINED_WT_PATH = ""
+LOSS_FUNCTION = "SOFT_BOUND_DEEP_SVDD"
+# LOSS_FUNCTION = "ONE_CLASS_DEEP_SVDD"
+# LOSS_FUNCTION = "ONE_CLASS_NEURAL_NETWORK"
+
+import os
+os.chdir(PROJECT_DIR)
+# RANDOM_SEED = [42,56,81,67,33,25,90,77,15,11]
+RANDOM_SEED = [42]
+AUC = []
+
+for seed in RANDOM_SEED:  
+  Cfg.seed = seed
+  ocnn = OneClass_SVDD(DATASET,LOSS_FUNCTION,IMG_DIM, HIDDEN_LAYER_SIZE, IMG_HGT, IMG_WDT,IMG_CHANNEL, MODEL_SAVE_PATH, REPORT_SAVE_PATH,PRETRAINED_WT_PATH,seed)
+ 
+  print("[INFO:] Testing with ALL other  Image Classes  as anomalies")
+  ocnn.fit()
+  print("==============PREDICTING THE LABELS ==============================")
+  auc_score = ocnn.predict()
+  AUC.append(auc_score)
+
+print("===========TRAINING AND PREDICTING WITH OCSVDD============================")
+print("AUROC computed ", AUC)
+auc_roc_mean = np.mean(np.asarray(AUC))
+auc_roc_std = np.std(np.asarray(AUC))
+print ("AUROC =====", auc_roc_mean ,"+/-",auc_roc_std)
+print("========================================================================")
+
+```
+
 
 
 ## Sample Results 
