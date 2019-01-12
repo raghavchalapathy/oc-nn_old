@@ -137,9 +137,9 @@ HIDDEN_LAYER_SIZE= 32
 MODEL_SAVE_PATH = PROJECT_DIR + "/models/MNIST/OC_NN/"
 REPORT_SAVE_PATH = PROJECT_DIR + "/reports/figures/MNIST/OC_NN/"
 PRETRAINED_WT_PATH = ""
-LOSS_FUNCTION = "SOFT_BOUND_DEEP_SVDD"
+#LOSS_FUNCTION = "SOFT_BOUND_DEEP_SVDD"
 # LOSS_FUNCTION = "ONE_CLASS_DEEP_SVDD"
-# LOSS_FUNCTION = "ONE_CLASS_NEURAL_NETWORK"
+LOSS_FUNCTION = "ONE_CLASS_NEURAL_NETWORK"
 
 import os
 os.chdir(PROJECT_DIR)
@@ -237,9 +237,9 @@ HIDDEN_LAYER_SIZE= 128
 MODEL_SAVE_PATH = PROJECT_DIR + "/models/cifar10/OC_NN/"
 REPORT_SAVE_PATH = PROJECT_DIR + "/reports/figures/cifar10/OC_NN/DeepSVDD/"
 PRETRAINED_WT_PATH = ""
-LOSS_FUNCTION = "SOFT_BOUND_DEEP_SVDD"
+#LOSS_FUNCTION = "SOFT_BOUND_DEEP_SVDD"
 # LOSS_FUNCTION = "ONE_CLASS_DEEP_SVDD"
-# LOSS_FUNCTION = "ONE_CLASS_NEURAL_NETWORK"
+LOSS_FUNCTION = "ONE_CLASS_NEURAL_NETWORK"
 
 import os
 os.chdir(PROJECT_DIR)
@@ -274,10 +274,19 @@ print("========================================================================"
 ### MNIST
 Example of the  most normal (left) and  most anomalous (right) test set examples per class on MNIST according to One Class Neural Networks and Robust Convolution Autoencoder (RCAE) anomaly scores.
 
+![img](http://i.imgur.com/yourfilename.png)
+
+
+
+
 
 
 ### CIFAR-10
 Example of the  most normal (left) and  most anomalous (right) test set examples per class on CIFAR-10 according to One Class Neural Networks and Robust Convolution Autoencoder (RCAE) anomaly scores.
+
+
+![img](http://i.imgur.com/yourfilename.png)
+
 
 
 # License
